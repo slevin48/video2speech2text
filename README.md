@@ -1,6 +1,14 @@
 # video2speech2text
 Extract the audio from a video - then translate to text
 
+**Demo:** Steve Jobs' 2005 Stanford Commencement Address
+
+https://www.youtube.com/watch?v=UF8uR6Z6KLc
+
+**Result:**
+"this program is brought to you by Stanford University please visit us at stanford.edu thank you i'mma honoured to be with you today for your commencement from one of the finest universities in the world truth be told I never from college and this is the closest I've ever gotten to a College graduation today I want to tell you three stories from my life that's it no big deal just three stories the first story is about connecting the dots"
+
+[full transcript](steve.txt)
 
 ## Resources
 - https://dev.to/seijind/how-to-download-youtube-videos-in-python-44od
