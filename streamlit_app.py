@@ -71,7 +71,7 @@ try:
             st.text(txt)
 
     data = open("downloads/speech.txt", "r").read()
-    b64 = base64.b64encode(data.encode('ascii'))
+    b64 = base64.b64encode(data.encode()).decode()
     st.markdown(f'<a href="data:file/txt;base64,{b64}" download="speech.txt">speech.txt</a>',unsafe_allow_html=True)
 except NameError:
     print('No video to process')
