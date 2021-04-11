@@ -11,26 +11,38 @@ except OSError as error:
 
 st.title('Video 2 Speech 2 Text')
 
-# Steve Jobs' 2005 Stanford Commencement Address
-# https://www.youtube.com/watch?v=UF8uR6Z6KLc
-url = 'https://www.youtube.com/watch?v=UF8uR6Z6KLc'
+# 2 modes: youtube or local
+src = st.radio("Youtube Download or Local Upload",["Download","Upload"])
+st.write(src)
+if src == "Upload":
+    up = st.file_uploader("Upload a video", type=["mp4"])
 
-url = st.text_input('Youtube URL',url)
+    if up is not None:
+        with open(os.path.join("downloads",up.name),"wb") as f:
+            f.write(up.getbuffer())
+        st.video(up,format='video/mp4', start_time=0)
+        path = 'downloads/'+up.name
+else:
+    # Steve Jobs' 2005 Stanford Commencement Address
+    # https://www.youtube.com/watch?v=UF8uR6Z6KLc
+    url = 'https://www.youtube.com/watch?v=UF8uR6Z6KLc'
 
-dl = st.button('Download')
+    url = st.text_input('Youtube URL',url)
 
+    dl = st.button('Download')
 
-if dl:
-    # Download Youtube video
-    youtube = pytube.YouTube(url)
-    video = youtube.streams.first()
-    # or
-    # video = youtube.streams.get_highest_resolution()
-    title = video.title
-    path = video.download('downloads')
-    st.text(title)
-    st.video(path,format='video/mp4', start_time=0)
+    if dl:
+        # Download Youtube video
+        youtube = pytube.YouTube(url)
+        video = youtube.streams.first()
+        # or
+        # video = youtube.streams.get_highest_resolution()
+        title = video.title
+        path = video.download('downloads')
+        st.text(title)
+        st.video(path,format='video/mp4', start_time=0)
 
+try:
     # Video to Audio
     print(path)
     my_clip = mp.VideoFileClip(path)
@@ -51,7 +63,7 @@ if dl:
             audio = r.record(source, offset=i*60, duration=60)
             audiolist.append(audio)
         i += 1
-    
+
     with open("downloads/speech.txt","w") as f:
         for audio in audiolist:
             txt = r.recognize_google(audio)
@@ -60,3 +72,5 @@ if dl:
 
 
     st.markdown('<a href="downloads/speech.txt">speech.txt</a>',unsafe_allow_html=True)
+except NameError:
+    print('No video to process')
