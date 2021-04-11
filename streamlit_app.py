@@ -2,7 +2,7 @@ import streamlit as st
 import pytube
 import moviepy.editor as mp
 import speech_recognition as sr
-import os
+import os, base64
 
 try:
     os.mkdir(os.mkdir('downloads'))
@@ -70,7 +70,8 @@ try:
             f.write(txt)
             st.text(txt)
 
-
-    st.markdown('<a href="downloads/speech.txt">speech.txt</a>',unsafe_allow_html=True)
+    data = open("downloads/speech.txt", "r").read()
+    b64 = base64.b64encode(data.encode('ascii'))
+    st.markdown(f'<a href="data:file/txt;base64,{b64}" download="speech.txt">speech.txt</a>',unsafe_allow_html=True)
 except NameError:
     print('No video to process')
