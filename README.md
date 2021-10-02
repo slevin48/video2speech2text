@@ -20,6 +20,18 @@ https://user-images.githubusercontent.com/12418115/121565644-f26c2200-ca1c-11eb-
 
 https://user-images.githubusercontent.com/12418115/121565751-10d21d80-ca1d-11eb-85e5-bfcbb2ab6d49.mp4
 
+**Convert WAV to MP3**
+```python
+from os import path
+from pydub import AudioSegment
+
+src = "steve.mp3"
+dst = "steve.wav"
+
+# convert wav to mp3                                                            
+sound = AudioSegment.from_mp3(src)
+sound.export(dst, format="wav")
+```
 
 
 ## Resources
