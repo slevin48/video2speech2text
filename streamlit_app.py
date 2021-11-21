@@ -34,7 +34,7 @@ else:
     if dl:
         # Download Youtube video
         youtube = pytube.YouTube(url)
-        video = youtube.streams.first()
+        video = youtube.streams.filter(progressive=True, file_extension='mp4').order_by('resolution').first()
         # or
         # video = youtube.streams.get_highest_resolution()
         title = video.title
