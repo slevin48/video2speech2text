@@ -5,7 +5,7 @@ import speech_recognition as sr
 import os, base64
 
 try:
-    os.mkdir(os.mkdir('downloads'))
+    os.mkdir('downloads')
 except OSError as error:
     print(error)
 

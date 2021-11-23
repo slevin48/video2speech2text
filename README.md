@@ -1,4 +1,7 @@
-# video2speech2text [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/video2speech2text/main) 
+# video2speech2text 
+
+*(project continued on [video-analyzer](https://github.com/slevin48/video-analyzer))*
+
 Extract the audio from a video - then translate to text
 
 **Demo:** Steve Jobs' 2005 Stanford Commencement Address
