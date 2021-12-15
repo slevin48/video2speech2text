@@ -1,4 +1,4 @@
-# video2speech2text 
+# video2speech2text 🎬 💬 📄 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/slevin48/video2speech2text/main)
 
 *(project continued on [video-analyzer](https://github.com/slevin48/video-analyzer))*
 
